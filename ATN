@@ -1,0 +1,36 @@
+# Bank
+package jrJava.Bank;
+
+public class ATM implements Runnable{
+
+	private BankAccount1 account;
+
+	
+	public void setBankAccount(BankAccount1 _account){
+		account = _account;
+	}
+
+	
+	public void run(){
+		withdrawAll();
+	}
+
+
+	void withdrawAll(){
+
+		double amount = account.getBalance();
+
+		boolean result = account.withdraw(amount);
+		
+		if(result){
+			//spit out money
+			System.out.println("Take the money: $" +amount);
+		}
+		else{
+			System.out.println("Sorry not enough fund");
+		}
+	}
+}
+
+
+
