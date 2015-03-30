@@ -1,0 +1,23 @@
+package jrJava.Bank;
+
+public class Customer {
+
+	public static void main(String[] args) {
+		
+		BankAccount1 account = new BankAccount1();
+		
+		ATM teller = new ATM();
+		
+		teller.setBankAccount(account);
+		
+		Thread t2 = new Thread (teller);
+		Thread t3 = new Thread (teller);
+		
+		t2.start();
+		t3.start();
+		teller.withdrawAll();
+		
+		
+	}
+
+}
