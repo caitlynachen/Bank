@@ -1,0 +1,39 @@
+package jrJava.Bank;
+
+import resources.Timer;
+
+public class BankAccount1{
+	private double balance = 1000.00;
+
+	Timer timer = new Timer();
+	
+
+	public double getBalance(){
+		return balance;
+	}
+
+	
+
+	public synchronized   boolean withdraw(double requested){
+		
+		if(balance<requested){
+			return false;
+		}	
+
+		
+		timer.pause(100); //busy processing
+		
+		balance = balance-requested;
+		
+		return true;
+		}
+		
+	}
+
+
+
+
+
+
+
+
